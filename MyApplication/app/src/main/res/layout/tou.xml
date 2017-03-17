@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#FF0000">
+
+<ToggleButton
+    android:layout_marginLeft="10dp"
+    android:layout_gravity="center"
+  android:textOn=""
+    android:textOff=""
+    android:id="@+id/ce"
+    android:layout_width="25dp"
+    android:layout_height="35dp"
+    android:button="@drawable/cehua"
+    android:background="#FF0000"
+    />
+<TextView
+    android:layout_marginLeft="30dp"
+    android:layout_gravity="center"
+    android:textColor="#FFFFFF"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="25dp"
+    android:text="今日头条"
+    />
+    <View
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"></View>
+    <EditText
+
+        android:layout_gravity="center"
+        android:background="#FFFFFF"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:hint="搜你想要的"/>
+
+</LinearLayout>
