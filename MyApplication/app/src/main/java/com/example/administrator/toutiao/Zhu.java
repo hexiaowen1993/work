@@ -90,6 +90,9 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
         lin_xinxi = (LinearLayout) findViewById(R.id.lin_xinxi);
         ImageView qq_log = (ImageView) findViewById(R.id.qq_log);
         image_yejian = (CheckBox) findViewById(R.id.image_yejian);
+
+
+
         //夜间模式--切换背景
         image_yejian.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -365,13 +368,13 @@ private class BaseUiListener implements IUiListener {
     }
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+      //  super.onSaveInstanceState(outState);
         outState.putInt("theme", theme);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
+       // super.onRestoreInstanceState(savedInstanceState);
         theme = savedInstanceState.getInt("theme");
     }
 }
