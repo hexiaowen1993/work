@@ -107,7 +107,6 @@ lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
-
     }
 
     private void getCursorDate() {

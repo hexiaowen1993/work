@@ -1,1 +1,1 @@
-include ':app', ':slidingmenulibrar', ':xlistviewlibrary'
+include ':app', ':slidingmenulibrar', ':xlistviewlibrary', ':bitmapimagelibary'

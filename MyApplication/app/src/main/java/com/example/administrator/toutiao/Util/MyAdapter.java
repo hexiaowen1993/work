@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.amiao.bitmapimagelibary.BitmapUtils;
 import com.example.administrator.toutiao.Bean.TuijianBean;
 import com.example.administrator.toutiao.C;
 import com.example.administrator.toutiao.Chakan;
@@ -32,10 +33,12 @@ public class MyAdapter extends BaseAdapter {
 
     static final int Type2 = 0;
     static final int Type3 = 1;
+    private BitmapUtils utils;
 
     public MyAdapter(Context context, List<TuijianBean> list) {
         this.context = context;
         this.list = list;
+        utils = new BitmapUtils(context);
     }
 
     @Override
@@ -116,7 +119,8 @@ public class MyAdapter extends BaseAdapter {
                 });
                 holder.textView1.setText(list.get(position).getSource());
 
-                x.image().bind(holder.imageView,list.get(position).getImgsrc());
+                utils.disPlay(holder.imageView,list.get(position).getImgsrc());
+               // x.image().bind(holder.imageView,list.get(position).getImgsrc());
                 break;
             case Type3:
                 holder.textView.setText(list.get(position).getTitle());
@@ -136,9 +140,12 @@ public class MyAdapter extends BaseAdapter {
 
                     }
                 });
-                x.image().bind(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
-                x.image().bind(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
-                x.image().bind(holder.imageView2,list.get(position).getImgsrc());
+             utils.disPlay(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
+               // x.image().bind(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
+                utils.disPlay(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
+              //  x.image().bind(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
+                utils.disPlay(holder.imageView2,list.get(position).getImgsrc());
+              //  x.image().bind(holder.imageView2,list.get(position).getImgsrc());
                 break;
         }
 
