@@ -1,6 +1,7 @@
 package com.example.administrator.toutiao.Fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +16,9 @@ import com.example.administrator.toutiao.Util.MyAdapter;
 import com.example.administrator.toutiao.Util.ShiMyAdapter;
 import com.example.administrator.toutiao.Zhu;
 import com.google.gson.Gson;
+import com.liaoinstan.springview.container.MeituanFooter;
+import com.liaoinstan.springview.container.MeituanHeader;
+import com.liaoinstan.springview.widget.SpringView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +41,10 @@ public class Fragment_shiping extends Fragment {
     public void setUrl(String url) {
         this.url = url;
     }
+    private SpringView spring;
+    private int[] pullAnimSrcs = new int[]{R.drawable.mt_pull,R.drawable.mt_pull01,R.drawable.mt_pull02,R.drawable.mt_pull03,R.drawable.mt_pull04,R.drawable.mt_pull05};
+    private int[] refreshAnimSrcs = new int[]{R.drawable.mt_refreshing01,R.drawable.mt_refreshing02,R.drawable.mt_refreshing03,R.drawable.mt_refreshing04,R.drawable.mt_refreshing05,R.drawable.mt_refreshing06};
+    private int[] loadingAnimSrcs = new int[]{R.drawable.mt_loading01,R.drawable.mt_loading02};
 
     @Nullable
     @Override
@@ -44,7 +52,8 @@ public class Fragment_shiping extends Fragment {
 
        View v=inflater.inflate(R.layout.shiping_listview,null);
         lv = (ListView) v.findViewById(R.id.lv);
-
+        spring= (SpringView) v.findViewById(R.id.spring_shi);
+        spring.setType(SpringView.Type.FOLLOW);
         return v;
     }
 
@@ -101,7 +110,29 @@ public class Fragment_shiping extends Fragment {
                 return false;
             }
         });
+        spring.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        spring.onFinishFreshAndLoad();
+                    }
+                }, 2000);
+            }
 
+            @Override
+            public void onLoadmore() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        spring.onFinishFreshAndLoad();
+                    }
+                }, 2000);
+            }
+        });
+        spring.setHeader(new MeituanHeader(getActivity(),pullAnimSrcs,refreshAnimSrcs));
+        spring.setFooter(new MeituanFooter(getActivity(),loadingAnimSrcs));
 
     }
 }

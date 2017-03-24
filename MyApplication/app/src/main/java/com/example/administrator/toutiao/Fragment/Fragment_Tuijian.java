@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,9 @@ import com.example.administrator.toutiao.R;
 import com.example.administrator.toutiao.Util.MyAdapter;
 import com.example.administrator.toutiao.Zhu;
 import com.google.gson.Gson;
+import com.liaoinstan.springview.container.MeituanFooter;
+import com.liaoinstan.springview.container.MeituanHeader;
+import com.liaoinstan.springview.widget.SpringView;
 import com.tencent.connect.share.QQShare;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
@@ -67,6 +71,10 @@ public class Fragment_Tuijian extends Fragment {
     private Tencent mTencent;
     private SQLiteDatabase db;
     private View v11;
+    private SpringView spring;
+    private int[] pullAnimSrcs = new int[]{R.drawable.mt_pull,R.drawable.mt_pull01,R.drawable.mt_pull02,R.drawable.mt_pull03,R.drawable.mt_pull04,R.drawable.mt_pull05};
+    private int[] refreshAnimSrcs = new int[]{R.drawable.mt_refreshing01,R.drawable.mt_refreshing02,R.drawable.mt_refreshing03,R.drawable.mt_refreshing04,R.drawable.mt_refreshing05,R.drawable.mt_refreshing06};
+    private int[] loadingAnimSrcs = new int[]{R.drawable.mt_loading01,R.drawable.mt_loading02};
 
 
     @Nullable
@@ -78,7 +86,8 @@ public class Fragment_Tuijian extends Fragment {
         }
 
 
-
+         spring= (SpringView) v11.findViewById(R.id.spring);
+        spring.setType(SpringView.Type.FOLLOW);
         xlv = (ListView) v11.findViewById(R.id.xlv);
         mTencent = Tencent.createInstance("1105602574", this.getActivity());
         ViewGroup    parent = (ViewGroup) v11.getParent();
@@ -136,6 +145,33 @@ public class Fragment_Tuijian extends Fragment {
                 getServerData(a);
             }
         }
+
+        spring.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        spring.onFinishFreshAndLoad();
+                    }
+                }, 2000);
+            }
+
+            @Override
+            public void onLoadmore() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        spring.onFinishFreshAndLoad();
+                    }
+                }, 2000);
+            }
+        });
+        spring.setHeader(new MeituanHeader(getActivity(),pullAnimSrcs,refreshAnimSrcs));
+        spring.setFooter(new MeituanFooter(getActivity(),loadingAnimSrcs));
+
+
+
         //点击关注放 把图片 ，title ，url 放到到数据库
         ShouyeDatabase cdb = new ShouyeDatabase(getActivity());
         db = cdb.getWritableDatabase();
