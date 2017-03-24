@@ -67,7 +67,8 @@
             android:background="#F4F4F5"
             android:orientation="horizontal"
             android:paddingTop="10dp"
-            android:visibility="gone">
+            android:visibility="gone"
+            >
 
             <ImageView
                 android:id="@+id/lin_shoujiima"
@@ -82,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/hei"
                 android:textSize="25dp"
-                android:text="18401587588" />
+                 />
 
         </LinearLayout>
 
@@ -114,7 +115,6 @@
                     android:id="@+id/te_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="wen"
                     android:textColor="@color/hei"
                     android:textSize="25dp" />
 

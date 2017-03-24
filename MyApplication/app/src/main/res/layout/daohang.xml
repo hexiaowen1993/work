@@ -28,8 +28,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/yangguang"/>
     <RadioButton
+
         android:drawableTop="@drawable/daohang_guan"
-        android:text="关注"
+        android:text="收藏"
         android:textColor="@drawable/daohang_text"
         android:button="@null"
         android:gravity="center"
@@ -40,7 +41,7 @@
     <RadioButton
         android:textColor="@drawable/daohang_text"
         android:drawableTop="@drawable/daohang_denglu"
-        android:text="未登录"
+        android:text="登录"
         android:button="@null"
         android:gravity="center"
         android:layout_weight="1"

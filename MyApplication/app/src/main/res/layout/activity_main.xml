@@ -16,4 +16,5 @@
         android:background="@mipmap/qidong"
         android:scaleType="fitXY"
         android:id="@+id/huanying"/>
+
 </RelativeLayout>

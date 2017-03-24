@@ -22,6 +22,7 @@ int time=2;
             @Override
             public void run() {
                 startActivity(new Intent(MainActivity.this,Zhu.class));
+                finish();
             }
         };
         timer.schedule(task,2000);

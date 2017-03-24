@@ -70,6 +70,8 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
     private LinearLayout duanxin;
     private CheckBox image_yejian;
     private int theme = R.style.AppTheme;
+    private TextView nam;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,13 +131,11 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
         });
         ima = (ImageView) findViewById(R.id.te_image);
         na = (TextView) findViewById(R.id.te_name);
-        ToggleButton ce = (ToggleButton) findViewById(R.id.ce);
-        ce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        ImageView ce = (ImageView) findViewById(R.id.ce);
+        ce.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    menu.toggle();
-                }
+            public void onClick(View v) {
+                menu.toggle();
             }
         });
         layout = (FrameLayout) findViewById(R.id.fra_layout);
@@ -174,7 +174,7 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
 //手机验证码登录
          ImageView shouji= (ImageView) findViewById(R.id.image_shouji);
          ImageView imageView= (ImageView) findViewById(R.id.lin_shoujiima);
-        TextView nam= (TextView) findViewById(R.id.shouji_na);
+        nam = (TextView) findViewById(R.id.shouji_na);
         duanxin = (LinearLayout) findViewById(R.id.lin_shoujiyanzhen);
          shouji.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -189,7 +189,7 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
                              HashMap<String,Object> phoneMap = (HashMap<String, Object>) data;
                              String country = (String) phoneMap.get("country");
                              String phone = (String) phoneMap.get("phone");
-
+                             nam.setText(phone);
 // 提交用户信息（此方法可以不调用）
                             // registerUser(country, phone);
                          }
@@ -357,6 +357,7 @@ private class BaseUiListener implements IUiListener {
             case R.id.guanzhu:
                 FragmentTransaction transaction3= getSupportFragmentManager().beginTransaction();
                 showAndHidden(fr_guanzhu,fr_shou,fr_yangguang,fr_denlu);
+
                 transaction3.commit();
                 break;
             case R.id.weidenglu:

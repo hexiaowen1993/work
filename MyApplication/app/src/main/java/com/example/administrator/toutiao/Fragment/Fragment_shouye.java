@@ -51,15 +51,23 @@ public class Fragment_shouye extends Fragment {
     private ViewPager page;
     ArrayList<Fragment> fr;
     private ImageButton pin;
+    private View v;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.frag_shouye, null);
+       if(v ==null){
+           v = inflater.inflate(R.layout.frag_shouye, null);
+       }
+
         tab = (TabLayout) v.findViewById(R.id.tab);
         page = (ViewPager) v.findViewById(R.id.shouye_page);
         pin = (ImageButton) v.findViewById(R.id.pin);
+        ViewGroup parent = (ViewGroup) v.getParent();
+        if (parent != null) {
+            parent.removeView(v);
+        }
         return v;
 
 

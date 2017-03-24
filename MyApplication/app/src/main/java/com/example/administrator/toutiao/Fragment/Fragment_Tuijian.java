@@ -1,18 +1,34 @@
 package com.example.administrator.toutiao.Fragment;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.toutiao.Bean.TuijianBean;
+import com.example.administrator.toutiao.Database.ShouyeDatabase;
 import com.example.administrator.toutiao.R;
 import com.example.administrator.toutiao.Util.MyAdapter;
 import com.example.administrator.toutiao.Zhu;
 import com.google.gson.Gson;
+import com.tencent.connect.share.QQShare;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,6 +41,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static android.provider.UserDictionary.Words.APP_ID;
+
 /**
  * Created by Administrator on 2017/3/14.
  */
@@ -32,7 +50,7 @@ import java.util.List;
 public class Fragment_Tuijian extends Fragment {
 
     private List<TuijianBean> list = new ArrayList<>();
-
+    private PopupWindow pop;
     private ListView xlv;
     String[] url1 = {
             "T1348648650048",//电影
@@ -46,79 +64,161 @@ public class Fragment_Tuijian extends Fragment {
             "T1348648756099",// 财经
             "T1348648141035"// 彩票
     };
-
-
+    private Tencent mTencent;
+    private SQLiteDatabase db;
+    private View v11;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.shouye_buju_tuijian, null);
-        xlv = (ListView) v.findViewById(R.id.xlv);
-        return v;
+
+        if (v11 == null) {
+            v11 = inflater.inflate(R.layout.shouye_buju_tuijian, null);
+        }
+
+
+
+        xlv = (ListView) v11.findViewById(R.id.xlv);
+        mTencent = Tencent.createInstance("1105602574", this.getActivity());
+        ViewGroup    parent = (ViewGroup) v11.getParent();
+        if (parent != null) {
+            parent.removeView(v11);
+        }
+        return v11;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Bundle bu=getArguments();
-        if(bu!=null){
-            String name=bu.get("name").toString();
-            if(name.equals("a")){
+
+        Bundle bu = getArguments();
+        if (bu != null) {
+            String name = bu.get("name").toString();
+            if (name.equals("a")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[0] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("b")){
+            if (name.equals("b")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[1] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("c")){
+            if (name.equals("c")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[2] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("d")){
+            if (name.equals("d")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[3] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("e")){
+            if (name.equals("e")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[4] + "/0-20.html";
             }
-            if(name.equals("f")){
+            if (name.equals("f")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[5] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("g")){
+            if (name.equals("g")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[6] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("h")){
+            if (name.equals("h")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[7] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("i")){
+            if (name.equals("i")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[8] + "/0-20.html";
                 getServerData(a);
             }
-            if(name.equals("g")){
+            if (name.equals("g")) {
                 String a = "http://c.m.163.com/nc/article/headline/" + url1[9] + "/0-20.html";
                 getServerData(a);
             }
         }
+        //点击关注放 把图片 ，title ，url 放到到数据库
+        ShouyeDatabase cdb = new ShouyeDatabase(getActivity());
+        db = cdb.getWritableDatabase();
+
+
+        xlv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                View vv = View.inflate(getActivity(), R.layout.pop, null);
+                ImageView guan = (ImageView) vv.findViewById(R.id.guan);
+                ImageView fen = (ImageView) vv.findViewById(R.id.fen);
+                pop = new PopupWindow(vv, ViewGroup.LayoutParams.MATCH_PARENT, 200);
+                pop.setTouchable(true);
+                pop.setFocusable(true);
+                pop.setOutsideTouchable(true);
+                pop.setBackgroundDrawable(new ColorDrawable(0));
+                view.getWindowToken();
+                pop.showAtLocation(view, Gravity.CENTER, 0, 0);
+                guan.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String sql = "insert into shouye(title,pic,webUrl) values('" + list.get(position).getTitle() + "','" + list.get(position).getImgsrc() + "','" + list.get(position).getUrl_3w() + "')";
+                        db.execSQL(sql);
+                        pop.dismiss();
+                    }
+                });
+                fen.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ShareListener myListener = new ShareListener();
+                        final Bundle params = new Bundle();
+                        params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
+                        params.putString(QQShare.SHARE_TO_QQ_TITLE, list.get(position).getTitle());
+                        params.putString(QQShare.SHARE_TO_QQ_SUMMARY, list.get(position).getImgsrc());
+                        params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, list.get(position).getImgsrc());
+                        params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, list.get(position).getImgsrc());
+                        mTencent.shareToQQ(getActivity(), params, myListener);
+
+                        pop.dismiss();
+                    }
+                });
+                return false;
+            }
+        });
+
+
+    }
+
+    private class ShareListener implements IUiListener {
+
+        @Override
+        public void onCancel() {
+            // TODO Auto-generated method stub
+
         }
 
+        @Override
+        public void onComplete(Object arg0) {
+            // TODO Auto-generated method stub
 
+        }
 
+        @Override
+        public void onError(UiError arg0) {
+            // TODO Auto-generated method stub
 
+        }
 
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        ShareListener myListener = new ShareListener();
+        Tencent.onActivityResultData(requestCode, resultCode, data, myListener);
+    }
 
     //Bundle传值
-    public static Fragment_Tuijian newInstance(String name){
-       Bundle bundle=new Bundle();
-        bundle.putString("name",name);
-        Fragment_Tuijian tuijian=new Fragment_Tuijian();
+    public static Fragment_Tuijian newInstance(String name) {
+        Bundle bundle = new Bundle();
+        bundle.putString("name", name);
+        Fragment_Tuijian tuijian = new Fragment_Tuijian();
         tuijian.setArguments(bundle);
-        return  tuijian;
+        return tuijian;
     }
 
 
@@ -169,4 +269,5 @@ public class Fragment_Tuijian extends Fragment {
             }
         });
     }
+
 }

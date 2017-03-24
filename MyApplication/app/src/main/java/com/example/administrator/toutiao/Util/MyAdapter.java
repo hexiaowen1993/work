@@ -1,14 +1,18 @@
 package com.example.administrator.toutiao.Util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.administrator.toutiao.Bean.TuijianBean;
+import com.example.administrator.toutiao.C;
+import com.example.administrator.toutiao.Chakan;
 import com.example.administrator.toutiao.R;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -67,7 +71,7 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         viewHolder holder;
         int type = getItemViewType(position);
         holder = new viewHolder();
@@ -77,7 +81,7 @@ public class MyAdapter extends BaseAdapter {
                     convertView = View.inflate(context,R.layout.shouye_buju2,null);
                     holder.textView= (TextView) convertView.findViewById(R.id.title2);
                     holder.textView1= (TextView) convertView.findViewById(R.id.media_name2);
-                    holder.textView2= (TextView) convertView.findViewById(R.id.pinlun2);
+                    holder.textView2= (TextView) convertView.findViewById(R.id.pinlun1);
                     holder.imageView = (ImageView) convertView.findViewById(R.id.pic2);
 
 
@@ -101,12 +105,37 @@ public class MyAdapter extends BaseAdapter {
         switch (type){
             case Type2:
                 holder.textView.setText(list.get(position).getTitle());
+                holder.textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                      Intent intent=new Intent(context,Chakan.class);
+                        intent.putExtra("name",list.get(position).getUrl_3w());
+                        context.startActivity(intent);
+
+                    }
+                });
                 holder.textView1.setText(list.get(position).getSource());
+
                 x.image().bind(holder.imageView,list.get(position).getImgsrc());
                 break;
             case Type3:
                 holder.textView.setText(list.get(position).getTitle());
+                holder.textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(context,Chakan.class);
+                        intent.putExtra("name",list.get(position).getUrl_3w());
+                        context.startActivity(intent);
+
+                    }
+                });
                 holder.textView1.setText(list.get(position).getSource());
+                holder.textView2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
                 x.image().bind(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
                 x.image().bind(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
                 x.image().bind(holder.imageView2,list.get(position).getImgsrc());

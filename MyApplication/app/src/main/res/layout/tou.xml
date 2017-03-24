@@ -4,15 +4,12 @@
     android:layout_height="40dp"
     android:background="#FF0000">
 
-<ToggleButton
-    android:layout_marginLeft="10dp"
-    android:layout_gravity="center"
-  android:textOn=""
-    android:textOff=""
+<ImageButton
     android:id="@+id/ce"
-    android:layout_width="25dp"
-    android:layout_height="35dp"
-    android:button="@drawable/cehua"
+    android:src="@mipmap/sdsds"
+   android:layout_width="40dp"
+android:layout_gravity="center"
+    android:layout_height="40dp"
     android:background="#FF0000"
     />
 <TextView
@@ -28,7 +25,6 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"></View>
     <EditText
-
         android:layout_gravity="center"
         android:background="#FFFFFF"
         android:layout_width="180dp"
