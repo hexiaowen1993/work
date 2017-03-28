@@ -1,7 +1,11 @@
 package com.example.administrator.toutiao.Fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +16,7 @@ import android.widget.ListView;
 import com.example.administrator.toutiao.Bean.ShipingBean;
 import com.example.administrator.toutiao.Bean.TuijianBean;
 import com.example.administrator.toutiao.R;
+import com.example.administrator.toutiao.Util.Internet;
 import com.example.administrator.toutiao.Util.MyAdapter;
 import com.example.administrator.toutiao.Util.ShiMyAdapter;
 import com.example.administrator.toutiao.Zhu;
@@ -60,6 +65,7 @@ public class Fragment_shiping extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         RequestParams params=new RequestParams(url);
         x.http().get(params, new Callback.CacheCallback<String>() {
             @Override
@@ -114,8 +120,39 @@ public class Fragment_shiping extends Fragment {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
+
+                    private AlertDialog.Builder builder;
+
                     @Override
                     public void run() {
+                        //弹一个dailog，判断
+                        boolean wifi= Internet.iswifi(getActivity());
+                        if(!wifi){
+                            builder = new AlertDialog.Builder(getActivity());
+                            builder.setTitle("是否要连接网络");
+
+                            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent in=null;
+                                    if(android.os.Build.VERSION.SDK_INT>10){
+                                        in=new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+                                    }else{
+                                        in=new Intent();
+                                        in.setClassName("com.android.settings","com.android.settings.WirelessSettings");
+                                    }
+                                    startActivity(in);
+                                    builder.create().dismiss();
+                                }
+                            });
+                            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    builder.create().dismiss();
+                                }
+                            });
+                            builder.create().show();
+                        }
                         spring.onFinishFreshAndLoad();
                     }
                 }, 2000);
@@ -126,6 +163,8 @@ public class Fragment_shiping extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+
+
                         spring.onFinishFreshAndLoad();
                     }
                 }, 2000);

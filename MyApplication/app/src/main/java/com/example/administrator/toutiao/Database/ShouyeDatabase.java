@@ -21,6 +21,8 @@ public class ShouyeDatabase extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
            String sql="create  table shouye(_id Integer primary key autoincrement,title varchar(20),pic varchar(20),webUrl varchar(20)) ";
             db.execSQL(sql);
+           String denglu="create table dengluxingxi(_id Integer primary key autoincrement ,loginname varchar(20) ,pwd varchar(20))";
+           db.execSQL(denglu);
     }
 
     @Override

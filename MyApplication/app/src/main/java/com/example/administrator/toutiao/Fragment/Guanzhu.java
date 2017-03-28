@@ -79,7 +79,7 @@ public class Guanzhu extends Fragment {
 
                 builder.create().show();
 
-               return false;
+               return true;
            }
        });
 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,6 +98,7 @@ lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
     if(hidden!=true){
+
         getCursorDate();
         asa = new ArrayList<GuanzhuBean>();
         for (int i =list.size()-1; i>=0 ; i--) {

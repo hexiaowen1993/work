@@ -119,8 +119,8 @@ public class MyAdapter extends BaseAdapter {
                 });
                 holder.textView1.setText(list.get(position).getSource());
 
-                utils.disPlay(holder.imageView,list.get(position).getImgsrc());
-               // x.image().bind(holder.imageView,list.get(position).getImgsrc());
+               // utils.disPlay(holder.imageView,list.get(position).getImgsrc());
+               x.image().bind(holder.imageView,list.get(position).getImgsrc());
                 break;
             case Type3:
                 holder.textView.setText(list.get(position).getTitle());
@@ -140,12 +140,12 @@ public class MyAdapter extends BaseAdapter {
 
                     }
                 });
-             utils.disPlay(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
-               // x.image().bind(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
-                utils.disPlay(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
-              //  x.image().bind(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
-                utils.disPlay(holder.imageView2,list.get(position).getImgsrc());
-              //  x.image().bind(holder.imageView2,list.get(position).getImgsrc());
+            // utils.disPlay(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
+               x.image().bind(holder.imageView,list.get(position).getImgextra().get(0).getImgsrc());
+                //utils.disPlay(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
+               x.image().bind(holder.imageView1,list.get(position).getImgextra().get(1).getImgsrc());
+                //utils.disPlay(holder.imageView2,list.get(position).getImgsrc());
+               x.image().bind(holder.imageView2,list.get(position).getImgsrc());
                 break;
         }
 

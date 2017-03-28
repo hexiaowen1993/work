@@ -38,15 +38,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/guanzhu"/>
-    <RadioButton
-        android:textColor="@drawable/daohang_text"
-        android:drawableTop="@drawable/daohang_denglu"
-        android:text="登录"
-        android:button="@null"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/weidenglu"/>
+
 </RadioGroup>
 </LinearLayout>
