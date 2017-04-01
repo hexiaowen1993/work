@@ -24,12 +24,12 @@
         "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
-        "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_part_chronometer.xml"
-    },
-    {
         "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_content_include.xml",
         "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
         "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\release\\layout\\pager_navigator_layout_no_scroll.xml",

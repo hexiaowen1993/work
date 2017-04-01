@@ -8,12 +8,12 @@
         "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
-        "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
-        "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
         "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
         "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "F:\\GitupWork\\work\\MagicIndicader\\magicindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
