@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="30dp">
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+        <RadioButton
+            android:textColor="@drawable/select"
+            android:id="@+id/xinwen"
+            android:button="@null"
+            android:text="新闻页面"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:textColor="@drawable/select"
+            android:id="@+id/sanfng"
+            android:button="@null"
+            android:text="第三方"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:textColor="@drawable/select"
+            android:id="@+id/wode"
+            android:button="@null"
+            android:text="我的"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+</LinearLayout>
