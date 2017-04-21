@@ -50,7 +50,7 @@ public class CheAdapter extends BaseAdapter {
             holder.name = (TextView) convertView.findViewById(R.id.che_goods_name);
             holder.price = (TextView) convertView.findViewById(R.id.che_price);
             holder.pic = (ImageView) convertView.findViewById(R.id.che_pic);
-            holder.name= (TextView) convertView.findViewById(R.id.number);
+          //  holder.number= (TextView) convertView.findViewById(R.id.number);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -58,7 +58,7 @@ public class CheAdapter extends BaseAdapter {
         holder.name.setText(list.get(position).getName());
         holder.price.setText(list.get(position).getPrice() + "");
         Glide.with(context).load(list.get(position).getPic()).into(holder.pic);
-        holder.number.setText(list.get(position).getId());
+       // holder.number.setText(list.get(position).getId());
         return convertView;
     }
 
@@ -66,7 +66,7 @@ public class CheAdapter extends BaseAdapter {
         ImageView pic;
         TextView name;
         TextView price;
-        TextView number;
+        //TextView number;
 
     }
 }

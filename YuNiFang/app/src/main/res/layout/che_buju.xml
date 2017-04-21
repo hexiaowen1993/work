@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    x
+
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -22,16 +22,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:text="aa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/che_goods_name"/>
             <TextView
+                android:text="aa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/che_price"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="aa"
                 android:id="@+id/number"/>
         </LinearLayout>
         </LinearLayout>

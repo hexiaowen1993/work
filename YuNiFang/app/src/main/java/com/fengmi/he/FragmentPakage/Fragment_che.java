@@ -39,7 +39,6 @@ public class Fragment_che extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fr_che, null);
         lv = (ListView) v.findViewById(R.id.che_lv);
-
         return v;
     }
 
@@ -49,12 +48,7 @@ public class Fragment_che extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("coin", MODE_PRIVATE);
         uid = sharedPreferences.getInt("id", -1);
         dataStr1 = sharedPreferences.getString("dataStr", "-2");
-        lv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
     }
 
 
