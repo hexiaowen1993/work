@@ -110,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                             editor.putInt("id",id);
                             editor.putString("dataStr",dataStr);
+                            editor.putString("user",user.getText().toString());
                             editor.commit();
 
 

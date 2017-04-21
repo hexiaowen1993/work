@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,10 +49,11 @@ public class CheAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = View.inflate(context, R.layout.che_buju, null);
+            holder.box= (CheckBox) convertView.findViewById(R.id.che_box);
             holder.name = (TextView) convertView.findViewById(R.id.che_goods_name);
             holder.price = (TextView) convertView.findViewById(R.id.che_price);
             holder.pic = (ImageView) convertView.findViewById(R.id.che_pic);
-          //  holder.number= (TextView) convertView.findViewById(R.id.number);
+            holder.bt= (Button) convertView.findViewById(R.id.che_button);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -58,15 +61,16 @@ public class CheAdapter extends BaseAdapter {
         holder.name.setText(list.get(position).getName());
         holder.price.setText(list.get(position).getPrice() + "");
         Glide.with(context).load(list.get(position).getPic()).into(holder.pic);
-       // holder.number.setText(list.get(position).getId());
+
         return convertView;
     }
 
     class ViewHolder {
+        CheckBox box;
         ImageView pic;
         TextView name;
         TextView price;
-        //TextView number;
+      Button bt;
 
     }
 }

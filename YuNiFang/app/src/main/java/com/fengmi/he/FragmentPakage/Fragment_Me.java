@@ -35,6 +35,12 @@ public class Fragment_Me extends Fragment {
         lv = (ListView) v.findViewById(R.id.me_lv);
         name = (TextView) v.findViewById(R.id.me_lv_name);
         touxiang = (ImageView) v.findViewById(R.id.me_touxiang);
+         /* SharedPreferences sharedPreferences=getActivity().getSharedPreferences("coin",MODE_PRIVATE);
+       int uid = sharedPreferences.getInt("id", -1);
+        String ss=sharedPreferences.getString("user","");
+        if(uid==26){
+            name.setText(ss);
+        }*/
         return v;
     }
 
@@ -49,6 +55,10 @@ public class Fragment_Me extends Fragment {
 
             }
         });
+
+
+
+
     }
 
     private void setLVdata() {
