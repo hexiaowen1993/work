@@ -48,5 +48,8 @@ public class Fragment1 extends Fragment {
         banner.setImages(list);
         banner.start();
 
+
+
+
     }
 }

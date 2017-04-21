@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:src="@mipmap/my_score_backgroud"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+           android:src="@mipmap/user_icon_no_sets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/me_touxiang"/>
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="me_name"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <TextView
+            android:gravity="center"
+            android:text="代付款"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/wait_pay"/>
+        <TextView
+            android:gravity="center"
+            android:text="代发货"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/wait_send_good"/>
+        <TextView
+            android:gravity="center"
+            android:text="代收货"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/wait_receive_good"/>
+
+
+        <TextView
+            android:gravity="center"
+            android:text="待评价"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/wait_evaluate"
+            />
+        <TextView
+            android:gravity="center"
+            android:text="退货"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/wait_refund"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:dividerHeight="10dp"
+        android:id="@+id/me_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</LinearLayout>

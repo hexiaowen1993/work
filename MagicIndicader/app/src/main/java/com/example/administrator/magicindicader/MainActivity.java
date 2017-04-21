@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements ChannelDataHelepr
         page.setAdapter(adapter);
         tab.setTabMode(TabLayout.MODE_SCROLLABLE);
         tab.setupWithViewPager(page);
+        //导致出现Tab没有标题
        // tab.setTabsFromPagerAdapter(adapter);
     }
     // 实现方法  是刷新数据的方法  只有在频道发生变化的时候才会触发

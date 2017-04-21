@@ -10,6 +10,9 @@
         android:numColumns="4"
         android:gravity="center"
         android:id="@+id/gv1"
+
+        android:horizontalSpacing="30dp"
+        android:verticalSpacing="20dp"
         android:layout_width="match_parent"
         android:layout_height="200dp"></GridView>
     <TextView

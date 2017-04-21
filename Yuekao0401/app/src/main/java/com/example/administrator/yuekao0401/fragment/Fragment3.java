@@ -2,6 +2,7 @@ package com.example.administrator.yuekao0401.fragment;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -32,7 +33,7 @@ public class Fragment3 extends Fragment {
     private GridView gv1;
     private GridView gv2;
     private SQLiteDatabase db;
-
+public boolean flag = false;
 
     @Nullable
     @Override
@@ -75,6 +76,30 @@ public class Fragment3 extends Fragment {
 
             }
         });
+
+        gv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                if(flag){
+                    for (int i = 0; i <mylist.size() ; i++) {
+                        gv1.getChildAt(i ).setBackgroundColor(Color.WHITE);
+                    }
+                    flag = false;
+                    adapter.notifyDataSetChanged();
+                    adapter1.notifyDataSetChanged();
+                }else{
+                    for (int i = 0; i <mylist.size() ; i++) {
+                        gv1.getChildAt(i ).setBackgroundColor(Color.RED);
+                    }
+                    flag = true;
+                    adapter.notifyDataSetChanged();
+                    adapter1.notifyDataSetChanged();
+                }
+
+
+                return true;
+            }
+        });
         gv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -85,8 +110,6 @@ public class Fragment3 extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
-
-
     }
 
 

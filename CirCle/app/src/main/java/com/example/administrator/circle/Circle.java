@@ -34,7 +34,6 @@ public class Circle extends View {
         init();
     }
 
-
     public Circle(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
@@ -78,8 +77,9 @@ public class Circle extends View {
         paint1.setStrokeWidth(10);
         //设置画笔颜色
         paint1.setColor(Color.YELLOW);
-        //样式
+        //样式画
         paint1.setStyle(Paint.Style.STROKE);
+        //矩形
         rectF = new RectF(with,with,radius*2+with,radius*2+with);
 
         paint2 = new Paint();

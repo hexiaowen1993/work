@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:id="@+id/group"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal">
+        <RadioButton
+
+            android:id="@+id/shouye"
+            android:textColor="@drawable/color"
+            android:drawableTop="@drawable/selectshouye"
+            android:button="@null"
+            android:text="首页"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+
+        <RadioButton
+
+            android:id="@+id/fenlei"
+            android:textColor="@drawable/color"
+           android:drawableTop="@drawable/selectgouwu"
+            android:button="@null"
+            android:text="分类"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+        <RadioButton
+            android:id="@+id/meila"
+            android:textColor="@drawable/color"
+            android:drawableTop="@drawable/selectmeila"
+            android:gravity="center"
+            android:button="@null"
+            android:text="美啦"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+        <RadioButton
+            android:id="@+id/gouwu"
+            android:textColor="@drawable/color"
+          android:drawableTop="@drawable/selectfenlei"
+            android:gravity="center"
+            android:button="@null"
+            android:text="购物车"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+        <RadioButton
+            android:id="@+id/wode"
+            android:textColor="@drawable/color"
+            android:drawableTop="@drawable/selectwode"
+            android:gravity="center"
+            android:button="@null"
+            android:text="我的"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            />
+    </RadioGroup>
+</LinearLayout>
