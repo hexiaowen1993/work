@@ -1,6 +1,7 @@
 package com.fengmi.he.FragmentPakage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,8 @@ import com.fengmi.he.R;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by Administrator on 2017/4/11.
  */
@@ -33,15 +36,21 @@ public class Fragment_Me extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fr_me, null);
         lv = (ListView) v.findViewById(R.id.me_lv);
-        name = (TextView) v.findViewById(R.id.me_lv_name);
+        name = (TextView) v.findViewById(R.id.fr_name);
         touxiang = (ImageView) v.findViewById(R.id.me_touxiang);
-         /* SharedPreferences sharedPreferences=getActivity().getSharedPreferences("coin",MODE_PRIVATE);
-       int uid = sharedPreferences.getInt("id", -1);
-        String ss=sharedPreferences.getString("user","");
-        if(uid==26){
-            name.setText(ss);
-        }*/
+
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("coin", MODE_PRIVATE);
+        int uid = sharedPreferences.getInt("id", -1);
+        String ss = sharedPreferences.getString("user", "");
+        if (uid == 26) {
+            name.setText(ss);
+        }
     }
 
     @Override
@@ -55,8 +64,6 @@ public class Fragment_Me extends Fragment {
 
             }
         });
-
-
 
 
     }

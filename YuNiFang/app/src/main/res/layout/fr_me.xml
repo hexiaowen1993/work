@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/me_touxiang"/>
         <TextView
+            android:id="@+id/fr_name"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="wrap_content"

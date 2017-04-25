@@ -45,6 +45,7 @@ public class CheBean {
          * sizeID : 0
          * userID : 123
          */
+        private boolean check;
 
         private int colorID;
         private int count;
@@ -56,6 +57,15 @@ public class CheBean {
         private int repertory;
         private int sizeID;
         private int userID;
+
+        public boolean isCheck() {
+            return check;
+        }
+
+
+        public void setCheck(boolean check) {
+            this.check = check;
+        }
 
         public int getColorID() {
             return colorID;
