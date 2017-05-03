@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="@color/colorAccent"
         android:src="@mipmap/my_score_backgroud"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -11,7 +12,7 @@
         <ImageView
             android:layout_marginTop="40dp"
             android:layout_gravity="center"
-           android:src="@mipmap/user_icon_no_sets"
+           android:src="@mipmap/user_icon_set"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/me_touxiang"/>

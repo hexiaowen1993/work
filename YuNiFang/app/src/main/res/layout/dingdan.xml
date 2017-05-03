@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TextView
+<EditText
     android:textSize="20dp"
     android:gravity="center"
     android:layout_gravity="center"
@@ -10,24 +10,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="请填写收货地址"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="共计：件商品"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="共计：圆"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="支付方式："/>
+
+    <ListView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dingdan_lv">
+    </ListView>
+
+<TextView
+    android:textColor="@color/colorAccent"
+    android:textSize="25dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/ding_price"/>
     <View
         android:layout_width="30dp"
-        android:layout_height="30dp"></View>
-<ImageView
-android:src="@mipmap/icon_alipay"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    />
+        android:layout_height="20dp"></View>
+    <Button
+        android:id="@+id/ding_tj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="提交订单"
+        android:background="#ff00"
+        android:textColor="#ffff"
+        />
+
+
 </LinearLayout>

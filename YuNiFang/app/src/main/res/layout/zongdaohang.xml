@@ -33,17 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             />
-        <RadioButton
-            android:id="@+id/meila"
-            android:textColor="@drawable/color"
-            android:drawableTop="@drawable/selectmeila"
-            android:gravity="center"
-            android:button="@null"
-            android:text="美啦"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            />
+
         <RadioButton
             android:id="@+id/gouwu"
             android:textColor="@drawable/color"

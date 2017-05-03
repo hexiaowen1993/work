@@ -127,10 +127,12 @@ public class CheAdapter extends BaseAdapter {
             public void onClick(View v) {
                 pos = position;
                 SharedPreferences sharedPreferences=context.getSharedPreferences("coin",MODE_PRIVATE);
-               int uid = sharedPreferences.getInt("id", -1);
+                int uid = sharedPreferences.getInt("id", -1);
                 netQuest(list.get(position).getProductID(),uid);
             }
         });
+
+
         holder.box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

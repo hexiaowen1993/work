@@ -16,6 +16,8 @@ import com.fengmi.he.FragmentPakage.Fragment_meila;
 import com.fengmi.he.FragmentPakage.Fragment_shouye;
 import com.fengmi.he.R;
 
+//import static com.fengmi.he.R.id.meila;
+
 /**
  * Created by Administrator on 2017/4/11.
  */
@@ -36,7 +38,7 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
         RadioGroup rg= (RadioGroup) findViewById(R.id.group);
         RadioButton shouye = (RadioButton) findViewById(R.id.shouye);
         RadioButton fenlei = (RadioButton) findViewById(R.id.fenlei);
-        RadioButton meila = (RadioButton) findViewById(R.id.meila);
+        //RadioButton meila = (RadioButton) findViewById(R.id.meila);
         RadioButton gouwu = (RadioButton) findViewById(R.id.gouwu);
         RadioButton wode = (RadioButton) findViewById(R.id.wode);
 
@@ -49,7 +51,7 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
 
         transaction.add(R.id.fralayout, fr_shouye, "f1");
         transaction.add(R.id.fralayout, fr_fenglei, "f2");
-        transaction.add(R.id.fralayout, fr_meila, "f3");
+       // transaction.add(R.id.fralayout, fr_meila, "f3");
         transaction.add(R.id.fralayout, che, "f4");
         transaction.add(R.id.fralayout, me, "f5");
         setShowAndHide(fr_shouye, fr_fenglei, fr_meila, che, me);
@@ -60,7 +62,7 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
         rg.check(R.id.shouye);
         shouye.setOnClickListener(this);
         fenlei.setOnClickListener(this);
-        meila.setOnClickListener(this);
+       // meila.setOnClickListener(this);
         gouwu.setOnClickListener(this);
          wode.setOnClickListener(this);
     }
@@ -91,11 +93,7 @@ public class Zhu extends FragmentActivity implements View.OnClickListener{
                 setShowAndHide(fr_fenglei,fr_shouye,fr_meila,che,me);
                 transaction1.commit();
                 break;
-            case R.id.meila:
-                FragmentTransaction transaction2=getSupportFragmentManager().beginTransaction();
-                setShowAndHide(fr_meila,fr_fenglei,fr_shouye,che,me);
-                transaction2.commit();
-                break;
+
             case R.id.gouwu:
                 FragmentTransaction transaction3=getSupportFragmentManager().beginTransaction();
                 setShowAndHide(che,fr_meila,fr_fenglei,fr_shouye,me);

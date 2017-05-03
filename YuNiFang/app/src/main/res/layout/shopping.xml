@@ -24,7 +24,7 @@
 </LinearLayout>
     <com.youth.banner.Banner
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:id="@+id/shop_banner">
     </com.youth.banner.Banner>
 <LinearLayout
@@ -34,7 +34,7 @@
     <TextView
         android:id="@+id/shop_goods_name"
         android:text="aaa"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_weight="1"
@@ -55,7 +55,7 @@
     android:orientation="horizontal">
     <TextView
 
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/shop_price"/>

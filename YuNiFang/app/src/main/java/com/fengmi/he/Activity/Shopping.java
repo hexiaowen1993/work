@@ -88,7 +88,7 @@ public class Shopping extends Activity {
             public void onClick(View v) {
                 View pop = View.inflate(Shopping.this, R.layout.pop_buy, null);
                 View part = View.inflate(Shopping.this, R.layout.shopping, null);
-                final PopupWindow popupWindow = new PopupWindow(pop, ViewGroup.LayoutParams.MATCH_PARENT, 430);
+                final PopupWindow popupWindow = new PopupWindow(pop, ViewGroup.LayoutParams.MATCH_PARENT, 600);
                 ImageView pic = (ImageView) pop.findViewById(R.id.pop__buy_pic);
                 TextView price = (TextView) pop.findViewById(R.id.pop_buy_price);
                 Button queding = (Button) pop.findViewById(R.id.pop_buy_queding);
@@ -110,6 +110,7 @@ public class Shopping extends Activity {
                     @Override
                     public void onClick(View v) {
 
+
                     }
                 });
 
@@ -126,7 +127,7 @@ public class Shopping extends Activity {
 
                 View pop = View.inflate(Shopping.this, R.layout.pop_add, null);
                 View part = View.inflate(Shopping.this, R.layout.shopping, null);
-                final PopupWindow popupWindow = new PopupWindow(pop, ViewGroup.LayoutParams.MATCH_PARENT, 430);
+                final PopupWindow popupWindow = new PopupWindow(pop, ViewGroup.LayoutParams.MATCH_PARENT, 623);
                 ImageView pic = (ImageView) pop.findViewById(R.id.pop_pic);
                 TextView price = (TextView) pop.findViewById(R.id.pop_price);
                 Button queding = (Button) pop.findViewById(R.id.pop_add_queding);

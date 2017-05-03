@@ -9,12 +9,10 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.fengmi.he.Activity.MainActivity;
 import com.fengmi.he.Activity.Shopping;
 import com.fengmi.he.Adapter.SYGvAdapter;
 import com.fengmi.he.Adapter.SYMyAdapter;
@@ -28,6 +26,7 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -85,7 +84,17 @@ public class Fragment_shouye extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fr_shouye, null);
         banner = (Banner) v.findViewById(R.id.sy_page);
+           //扫描二维码
+       ImageView erweima= (ImageView) v.findViewById(R.id.erweima);
+        erweima.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(intent, 200);
 
+
+            }
+        });
         rexiao = (RecyclerView) v.findViewById(R.id.recycler_rexiao);
         youhui = (RecyclerView) v.findViewById(R.id.recycler_youhui);
         //

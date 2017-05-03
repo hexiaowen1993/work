@@ -1,12 +1,13 @@
 package com.fengmi.he.Bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/20.
  */
 
-public class CheBean {
+public class CheBean implements Serializable{
 
     /**
      * cartItemList : [{"colorID":0,"count":10,"id":5,"name":"黑泥","pic":"http://image.hmeili.com/yunifang/images/goods/189/goods_img/160819091183119066095185335.jpg","price":99.9,"productID":1,"repertory":899,"sizeID":0,"userID":123},{"colorID":0,"count":10,"id":6,"name":"美白","pic":"http://image.hmeili.com/yunifang/images/goods/189/goods_img/160819091183119066095185335.jpg","price":99.9,"productID":1,"repertory":899,"sizeID":0,"userID":123},{"colorID":0,"count":10,"id":7,"name":"面膜\u0097","pic":"http://image.hmeili.com/yunifang/images/goods/189/goods_img/160819091183119066095185335.jpg","price":99.9,"productID":1,"repertory":899,"sizeID":0,"userID":123}]
@@ -32,7 +33,7 @@ public class CheBean {
         this.cartItemList = cartItemList;
     }
 
-    public static class CartItemListBean {
+    public static class CartItemListBean  implements  Serializable{
         /**
          * colorID : 0
          * count : 10
